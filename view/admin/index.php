@@ -3,7 +3,10 @@ require '../../app/config.php';
 $page = 'dashboard';
 include_once '../layout/topbar.php';
 
-$a = $con->query("SELECT COUNT(*) AS total FROM sarpras")->fetch_array();
+$a = $con->query("SELECT COUNT(*) AS total FROM sarpras WHERE kondisi != 'Musnah' ")->fetch_array();
+$b = $con->query("SELECT COUNT(*) AS total FROM rusak")->fetch_array();
+$c = $con->query("SELECT COUNT(*) AS total FROM baik")->fetch_array();
+$d = $con->query("SELECT COUNT(*) AS total FROM musnah")->fetch_array();
 ?>
 <div class="page-content">
 
@@ -35,6 +38,63 @@ $a = $con->query("SELECT COUNT(*) AS total FROM sarpras")->fetch_array();
                         <div class="flex-1 overflow-hidden">
                             <h5 class="font-size-16 mb-1">Data Sarana dan Prasarana</h5>
                             <p class="text-truncate mb-0"><?= $a['total'] ?> Data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-start my-2">
+                        <div class="me-3 align-self-center">
+                            <div class="avatar-sm font-size-20">
+                                <span class="avatar-title bg-soft-info text-info rounded">
+                                    <i class="fas fa-burst"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h5 class="font-size-16 mb-1">Data Kerusakan Sarana dan Prasarana</h5>
+                            <p class="text-truncate mb-0"><?= $b['total'] ?> Data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-start my-2">
+                        <div class="me-3 align-self-center">
+                            <div class="avatar-sm font-size-20">
+                                <span class="avatar-title bg-soft-info text-info rounded">
+                                    <i class="fas fa-toolbox"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h5 class="font-size-16 mb-1">Data Perbaikan Sarana dan Prasarana</h5>
+                            <p class="text-truncate mb-0"><?= $c['total'] ?> Data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-start my-2">
+                        <div class="me-3 align-self-center">
+                            <div class="avatar-sm font-size-20">
+                                <span class="avatar-title bg-soft-info text-info rounded">
+                                    <i class="fas fa-house-fire"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <h5 class="font-size-16 mb-1">Data Pemusnahan Sarana dan Prasarana</h5>
+                            <p class="text-truncate mb-0"><?= $d['total'] ?> Data</p>
                         </div>
                     </div>
                 </div>
