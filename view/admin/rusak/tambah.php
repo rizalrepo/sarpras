@@ -9,7 +9,7 @@ include_once '../../layout/topbar.php';
 
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="page-title mb-0 font-size-18"><i class="fas burst me-2"></i>Tambah Data Kerusakan Sarana dan Prasarana</h4>
+                <h4 class="page-title mb-0 font-size-18"><i class="fas fa-burst me-2"></i>Tambah Data Kerusakan Sarana dan Prasarana</h4>
 
                 <div class="page-title-right">
                     <a href="index" class="btn btn-sm btn-secondary"><i class="fas fa-arrow-left me-2"></i>Kembali</a>

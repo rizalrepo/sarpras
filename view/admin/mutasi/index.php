@@ -1,6 +1,6 @@
 <?php
 require '../../../app/config.php';
-$page = 'rusak';
+$page = 'mutasi';
 include_once '../../layout/topbar.php';
 ?>
 <div class="page-content">
@@ -8,7 +8,7 @@ include_once '../../layout/topbar.php';
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="page-title mb-0 font-size-18"><i class="fas fa-burst me-2"></i>Data Kerusakan Sarana dan Prasarana</h4>
+                <h4 class="page-title mb-0 font-size-18"><i class="fas fa-building-circle-arrow-right me-2"></i>Data Mutasi Sarana dan Prasarana</h4>
 
                 <?php if ($_SESSION['level'] != 3) { ?>
                     <div class="page-title-right">
@@ -34,9 +34,10 @@ include_once '../../layout/topbar.php';
                         <thead class="bg-primary">
                             <tr>
                                 <th>No</th>
-                                <th>Tanggal Kerusakan</th>
+                                <th>Tanggal Mutasi</th>
                                 <th>Kode</th>
                                 <th>Sarpras</th>
+                                <th>Mutasi</th>
                                 <th>Keterangan</th>
                                 <th>Aksi</th>
                             </tr>
@@ -45,29 +46,26 @@ include_once '../../layout/topbar.php';
                         <tbody>
                             <?php
                             $no = 1;
-                            $data = $con->query("SELECT * FROM rusak a LEFT JOIN sarpras b ON a.id_sarpras = b.id_sarpras LEFT JOIN lokasi c ON b.id_lokasi = c.id_lokasi ORDER BY a.id_rusak DESC");
+                            $data = $con->query("SELECT * FROM mutasi a LEFT JOIN lokasi r ON a.id_lokasi = r.id_lokasi LEFT JOIN sarpras b ON a.id_sarpras = b.id_sarpras LEFT JOIN lokasi c ON b.id_lokasi = c.id_lokasi ORDER BY a.id_mutasi DESC");
                             while ($row = $data->fetch_array()) {
                             ?>
                                 <tr>
                                     <td align="center" width="5%"><?= $no++ ?></td>
-                                    <td align="center"><?= tgl($row['tgl_rusak']) ?></td>
+                                    <td align="center"><?= tgl($row['tgl_mutasi']) ?></td>
                                     <td align="center"><?= $row['kode'] ?></td>
                                     <td><?= $row['nm_sarpras'] ?></td>
-                                    <td><?= $row['ket_rusak'] ?></td>
-                                    <td align="center" width="12%">
-                                        <span data-bs-toggle="tooltip" title="Detail" data-bs-placement="top">
-                                            <span data-bs-target="#id<?= $row[0]; ?>" data-bs-toggle="modal" class="btn btn-success btn-xs text-white" title="Detail"><i class="fa fa-info-circle"></i></span>
-                                        </span>
+                                    <td align="center">
                                         <?php
-                                        $cek = $con->query("SELECT * FROM sarpras WHERE id_sarpras = '$row[id_sarpras]' ")->fetch_array();
+                                        $dt = $con->query("SELECT * FROM lokasi WHERE id_lokasi = '$row[id_lokasi_lama]' ")->fetch_array();
+                                        echo $dt['nm_lokasi'];
                                         ?>
-                                        <?php if ($cek['kondisi'] != 'Musnah') { ?>
-                                            <a href="edit?id=<?= $row[0] ?>" class="btn btn-info btn-xs text-white" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-edit"></i></a>
-                                            <a href="hapus?id=<?= $row[0] ?>" class="btn btn-danger btn-xs alert-hapus" title="Hapus" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-trash"></i></a>
-                                        <?php } ?>
-                                        <?php
-                                        include('../../detail/rusak.php');
-                                        ?>
+                                        <i class="fas fa-right-long ms-1 me-1"></i>
+                                        <?= $row['nm_lokasi'] ?>
+                                    </td>
+                                    <td><?= $row['ket_mutasi'] ?></td>
+                                    <td align="center" width="8%">
+                                        <a href="edit?id=<?= $row[0] ?>" class="btn btn-info btn-xs text-white" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-edit"></i></a>
+                                        <a href="hapus?id=<?= $row[0] ?>" class="btn btn-danger btn-xs alert-hapus" title="Hapus" data-bs-toggle="tooltip" data-bs-placement="top"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

@@ -38,6 +38,7 @@ include_once '../../layout/topbar.php';
                                 <th>Sarana Dan Prasarana</th>
                                 <th>Kategori</th>
                                 <th>Tanggal</th>
+                                <th>Penempatan</th>
                                 <th>Kondisi</th>
                                 <th>Aksi</th>
                             </tr>
@@ -55,6 +56,7 @@ include_once '../../layout/topbar.php';
                                     <td><?= $row['nm_sarpras'] ?></td>
                                     <td align="center"><?= $row['nm_kategori'] ?></td>
                                     <td align="center"><?= tgl($row['tgl_sarpras']) ?></td>
+                                    <td align="center"><?= $row['nm_lokasi'] ?></td>
                                     <td align="center">
                                         <?php
                                         if ($row['kondisi'] === 'Baik') {

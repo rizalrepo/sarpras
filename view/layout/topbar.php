@@ -98,7 +98,7 @@ if (!isset($_SESSION['login'])) {
                                                 </div>
                                             </li>
 
-                                            <li class="nav-item dropdown <?php if ($page == 'sarpras' || $page == 'rusak' || $page == 'baik' || $page == 'musnah') {
+                                            <li class="nav-item dropdown <?php if ($page == 'sarpras' || $page == 'rusak' || $page == 'baik' || $page == 'mutasi' || $page == 'musnah') {
                                                                                 echo 'active';
                                                                             } ?>">
                                                 <a class="nav-link dropdown-toggle arrow-none" href="#" role="button">
@@ -114,6 +114,9 @@ if (!isset($_SESSION['login'])) {
                                                     <a href="<?= base_url() ?>/view/admin/baik/" class="dropdown-item <?php if ($page == 'baik') {
                                                                                                                             echo 'active';
                                                                                                                         } ?>"><i class="fas fa-toolbox me-2"></i>Data Perbaikan</a>
+                                                    <a href="<?= base_url() ?>/view/admin/mutasi/" class="dropdown-item <?php if ($page == 'mutasi') {
+                                                                                                                            echo 'active';
+                                                                                                                        } ?>"><i class="fas fa-building-circle-arrow-right me-2"></i>Data Mutasi</a>
                                                     <a href="<?= base_url() ?>/view/admin/musnah/" class="dropdown-item <?php if ($page == 'musnah') {
                                                                                                                             echo 'active';
                                                                                                                         } ?>"><i class="fas fa-house-fire me-2"></i>Data Pemusnahan</a>
@@ -125,9 +128,9 @@ if (!isset($_SESSION['login'])) {
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="topnav-laporan">
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapSarpras" class="dropdown-item"><i class="far fa-circle me-2"></i>Sarana dan Prasarana</a>
-                                                    <a href="<?= base_url('view/laporan/rekap') ?>" target="_blank" class="dropdown-item"><i class="far fa-circle me-2"></i>Rekapitulasi Sarana dan Prasarana</a>
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapRusak" class="dropdown-item"><i class="far fa-circle me-2"></i>Kerusakan</a>
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapBaik" class="dropdown-item"><i class="far fa-circle me-2"></i>Perbaikan</a>
+                                                    <a href="" data-bs-toggle="modal" data-bs-target="#lapMutasi" class="dropdown-item"><i class="far fa-circle me-2"></i>Mutasi</a>
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapMusnah" class="dropdown-item"><i class="far fa-circle me-2"></i>Pemusnahan</a>
                                                 </div>
                                             </li>
@@ -145,9 +148,9 @@ if (!isset($_SESSION['login'])) {
                                                 </a>
                                                 <div class="dropdown-menu" aria-labelledby="topnav-laporan">
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapSarpras" class="dropdown-item"><i class="far fa-circle me-2"></i>Sarana dan Prasarana</a>
-                                                    <a href="<?= base_url('view/laporan/rekap') ?>" target="_blank" class="dropdown-item"><i class="far fa-circle me-2"></i>Rekapitulas Sarana dan Prasarana</a>
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapRusak" class="dropdown-item"><i class="far fa-circle me-2"></i>Kerusakan</a>
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapBaik" class="dropdown-item"><i class="far fa-circle me-2"></i>Perbaikan</a>
+                                                    <a href="" data-bs-toggle="modal" data-bs-target="#lapMutasi" class="dropdown-item"><i class="far fa-circle me-2"></i>Mutasi</a>
                                                     <a href="" data-bs-toggle="modal" data-bs-target="#lapMusnah" class="dropdown-item"><i class="far fa-circle me-2"></i>Pemusnahan</a>
                                                 </div>
                                             </li>
